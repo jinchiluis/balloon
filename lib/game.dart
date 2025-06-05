@@ -46,7 +46,7 @@ class _BalloonPopPageState extends State<BalloonPopPage> {
   void _addBalloon() {
     final contextOverlay = Overlay.of(context)?.context ?? context;
     final screenWidth = MediaQuery.of(contextOverlay).size.width;
-    final x = random.nextDouble() * (screenWidth - 80);
+    final x = random.nextDouble() * (screenWidth - 240);
 
     setState(() {
       balloons.add(

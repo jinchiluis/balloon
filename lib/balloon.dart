@@ -64,7 +64,7 @@ class _BalloonState extends State<Balloon> with SingleTickerProviderStateMixin {
       top: _animation.value,
       child: GestureDetector(
         onTap: _pop,
-        child: Image.asset('assets/balloon.png', width: 80),
+        child: Image.asset('assets/balloon.png', width: 240),
       ),
     );
   }
