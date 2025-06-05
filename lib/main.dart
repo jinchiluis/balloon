@@ -64,7 +64,7 @@ class _BalloonPopPageState extends State<BalloonPopPage> {
 
   Future<void> _onBalloonPopped(Balloon balloon) async {
     final player = AudioPlayer();
-    await player.play(AssetSource('pop.mp3'));
+    await player.play('assets/pop.mp3', isLocal: true);
     setState(() {
       balloons.remove(balloon);
       score++;
