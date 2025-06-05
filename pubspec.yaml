@@ -1,0 +1,20 @@
+name: balloon
+version: 0.1.0
+description: A simple balloon popping game for kids.
+environment:
+  sdk: '>=2.17.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  audioplayers: ^1.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/balloon.png
+    - assets/pop.mp3
