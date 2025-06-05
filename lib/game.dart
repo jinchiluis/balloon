@@ -74,6 +74,12 @@ class _BalloonPopPageState extends State<BalloonPopPage> {
       backgroundColor: Colors.lightBlue[50],
       body: Stack(
         children: [
+          Positioned.fill(
+            child: Image.asset(
+              'assets/background.png',
+              fit: BoxFit.cover,
+            ),
+          ),
           ...balloons,
           Positioned(
             top: 50,
