@@ -18,6 +18,7 @@ class _BalloonState extends State<Balloon> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
   double? yStart;
+  bool _popped = false;
 
   @override
   void initState() {
@@ -35,7 +36,7 @@ class _BalloonState extends State<Balloon> with SingleTickerProviderStateMixin {
           if (mounted) setState(() {});
         })
         ..addStatusListener((status) {
-          if (status == AnimationStatus.completed) {
+          if (status == AnimationStatus.completed && !_popped) {
             widget.onPopped(widget);
           }
         });
@@ -51,7 +52,16 @@ class _BalloonState extends State<Balloon> with SingleTickerProviderStateMixin {
   }
 
   void _pop() {
-    widget.onPopped(widget);
+    if (_popped) return;
+    setState(() {
+      _popped = true;
+    });
+    _controller.stop();
+    Future.delayed(Duration(milliseconds: 300), () {
+      if (mounted) {
+        widget.onPopped(widget);
+      }
+    });
   }
 
   @override
@@ -64,7 +74,10 @@ class _BalloonState extends State<Balloon> with SingleTickerProviderStateMixin {
       top: _animation.value,
       child: GestureDetector(
         onTap: _pop,
-        child: Image.asset('assets/balloon.png', width: 240),
+        child: Image.asset(
+          _popped ? 'assets/balloon_explode.png' : 'assets/balloon.png',
+          width: 240,
+        ),
       ),
     );
   }
