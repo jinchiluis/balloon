@@ -20,3 +20,4 @@ flutter:
     - assets/balloon.png
     - assets/pop.mp3
     - assets/background.png
+    - assets/balloon_explode.png
